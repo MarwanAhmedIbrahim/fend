@@ -2,12 +2,15 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Title](#title)
 
-## Instructions
+* [Description](#description)
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Title
 
-To get started, open `js/app.js` and start building out the app's functionality
+Happy Belly 
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Description
+
+A dynamic landing page that uses javascript to create an interactive navigational experince for the user 
+
