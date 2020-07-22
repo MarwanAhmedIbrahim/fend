@@ -18,6 +18,10 @@
  * 
 */
 
+const navBar        = document.getElementById('navbar__list');
+const collection    = document.getElementsByTagName('section');
+let items           = [...collection];
+const sections = document.querySelectorAll('section');
 
 /**
  * End Global Variables
@@ -34,13 +38,56 @@
 */
 
 // build the nav
-
+function createItem() {
+    for (let i = 0; i < items.length; i++) {
+        const item = document.createElement('li');
+        const anchor = document.createElement('a');
+        anchor.setAttribute('class', 'menu__link')
+        anchor.setAttribute('href', '#' + items[i].getAttribute('id'));
+        anchor.innerHTML = items[i].getAttribute('data-nav');
+        navBar.appendChild(item);
+        item.appendChild(anchor);
+        
+    }
+}
+    createItem();
+    
 
 // Add class 'active' to section when near top of viewport
 
 
-// Scroll to anchor ID using scrollTO event
+function changeSectionState() {
+  let i = sections.length;
 
+  while(--i && window.scrollY + 400 < sections[i].offsetTop) {}
+  
+  for (let section of sections) {
+    section.classList.remove('your-active-class');
+    sections[i].classList.add('your-active-class');
+  }
+  
+}
+window.addEventListener('scroll', changeSectionState);
+
+
+// Scroll to anchor ID using scrollTO event
+const navItemsLinks = document.querySelectorAll("a");
+const navItemsLinksArr = [...navItemsLinks];
+
+    
+for (let i = 0; i < navItemsLinksArr.length; i++) {
+        navItemsLinksArr[i].addEventListener("click", smoothScroll);
+        
+}
+
+function smoothScroll(event) {
+      event.preventDefault();
+      const targetId = event.currentTarget.getAttribute("href");
+      window.scrollTo({
+        top: targetId==="#" ? 0 : document.querySelector(targetId).offsetTop,
+        behavior: "smooth"
+      });
+}
 
 /**
  * End Main Functions
