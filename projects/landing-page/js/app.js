@@ -42,7 +42,7 @@ function createItem() {
     for (let i = 0; i < items.length; i++) {
         const item = document.createElement('li');
         const anchor = document.createElement('a');
-        anchor.setAttribute('class', 'menu__link')
+        anchor.setAttribute('class', 'menu__link');
         anchor.setAttribute('href', '#' + items[i].getAttribute('id'));
         anchor.innerHTML = items[i].getAttribute('data-nav');
         navBar.appendChild(item);
@@ -56,7 +56,7 @@ function createItem() {
 // Add class 'active' to section when near top of viewport
 
 
-function changeSectionState() {
+function changeSectionState(event) {
   let i = sections.length;
 
   while(--i && window.scrollY + 400 < sections[i].offsetTop) {}
@@ -64,6 +64,10 @@ function changeSectionState() {
   for (let section of sections) {
     section.classList.remove('your-active-class');
     sections[i].classList.add('your-active-class');
+  }
+  for (let navLink of navItemsLinksArr) {
+    navLink.classList.remove('active-link');
+    navItemsLinksArr[i].classList.add('active-link');
   }
   
 }
