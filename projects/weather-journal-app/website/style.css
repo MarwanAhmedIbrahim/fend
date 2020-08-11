@@ -2,16 +2,42 @@ body{
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    height: 100%; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
+    /* grid-auto-rows: minmax(150px, auto); */
+    /* grid-template-columns: min-content;  */
     height:100vh;
     background: #f23557;
     color: #f0d43a;
-    justify-content: center;
-    grid-gap: 1em;
+    /* justify-content: center; */
+    /* grid-gap: 1em; */
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
 }
@@ -22,6 +48,8 @@ body{
 
 .entry{
     background: rgba(59, 74, 107, .4);
+    margin-top: 50%;
+    height: 6em;
 }
 
 #entryHolder{
@@ -29,15 +57,18 @@ body{
 }
 
 #date{
-
+color: black;
+font-size: 1em;
 }
 
 #temp{
-
+color: black;
+font-size: 1em;
 }
 
 #content{
-
+color: black;
+font-size: 1em;
 }
 
 .headline {
@@ -54,7 +85,7 @@ label{
 }
 
 input{
-    display:block;
+    /* display:block; */
     height: 60px;
     width: 320px;
     background:#22b2da;
